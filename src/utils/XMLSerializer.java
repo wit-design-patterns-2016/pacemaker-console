@@ -11,7 +11,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 
-public class XMLSerializer
+public class XMLSerializer implements Serializer
 {
   private Deque<Object> stack = new ArrayDeque<>();
   private File file;
