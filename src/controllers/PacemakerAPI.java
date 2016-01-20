@@ -9,6 +9,7 @@ import models.Activity;
 import models.Location;
 import models.User;
 import utils.DateTimeFormatters;
+import utils.Serializer;
 
 public class PacemakerAPI
 {
@@ -19,7 +20,7 @@ public class PacemakerAPI
   private Map<String, User>   userEmailMap    = new HashMap<>();
   private Map<Long, Activity> activityMap     = new HashMap<>();
   public  Collection<User>    users           = userMap.values();
-  public  XMLSerializer       serializer;
+  public  Serializer       serializer;
 
   public PacemakerAPI()
   {

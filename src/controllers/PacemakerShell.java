@@ -1,12 +1,13 @@
 package controllers;
 
+import utils.JSONSerializer;
+import utils.Serializer;
 import utils.XMLSerializer;
 import asg.cliche.Command;
 import asg.cliche.Param;
 import asg.cliche.Shell;
 import asg.cliche.ShellFactory;
 import parsers.AsciiParser;
-import utils.XMLSerializer;
 import response.Response;
 
 public class PacemakerShell 
@@ -14,8 +15,9 @@ public class PacemakerShell
   private PacemakerAPI       paceApi;
   private PacemakerService   pacemaker;
   private String datastore   = "testdatastore";
-  XMLSerializer xmlSerializer   = new XMLSerializer(datastore);
-
+  
+  Serializer xmlSerializer   = new XMLSerializer(datastore);
+  Serializer jsonSerializer  = new JSONSerializer(datastore);
   
   public static void println(Response response)
   {
@@ -103,6 +105,15 @@ public class PacemakerShell
   public void store () throws Exception
   {
     paceApi.store();
+  }
+  
+  @Command(description="Set file format")
+  public void changeFileFormat (@Param(name="file format: xml, json") String fileFormat)
+  {
+    if (fileFormat.equals("xml"))
+      paceApi.serializer = xmlSerializer;
+    else if (fileFormat.equals("json"))
+      paceApi.serializer = jsonSerializer; 
   }
   
   public static void main(String[] args) throws Exception
