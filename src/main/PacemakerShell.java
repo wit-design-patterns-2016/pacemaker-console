@@ -1,4 +1,4 @@
-package controllers;
+package main;
 
 import utils.JSONSerializer;
 import utils.Serializer;
@@ -7,6 +7,9 @@ import com.budhash.cliche.Command;
 import com.budhash.cliche.Param;
 import com.budhash.cliche.Shell;
 import com.budhash.cliche.ShellFactory;
+
+import controllers.PacemakerAPI;
+import controllers.PacemakerService;
 import parsers.AsciiParser;
 import response.Response;
 

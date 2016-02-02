@@ -7,7 +7,7 @@ import response.NotFound;
 import response.Ok;
 import response.Response;
 
-class PacemakerService
+public class PacemakerService
 {  
   PacemakerAPI pacemaker;
   Parser       parser;
@@ -18,37 +18,37 @@ class PacemakerService
     this.parser = parser;
   }
   
-  Response createUser(String firstname, String lastname, String email, String password) throws Exception 
+  public Response createUser(String firstname, String lastname, String email, String password) throws Exception 
   {
     Long id = pacemaker.createUser(firstname, lastname, email, password);
     return new Ok(parser.renderUser(pacemaker.getUser(id)));
   }
   
-  Response  getUser(Long id) throws Exception 
+  public Response  getUser(Long id) throws Exception 
   {
   	User user = pacemaker.getUser(id);
   	return user == null ? new NotFound("") : new Ok(parser.renderUser(user));
   }
  
-  Response  getUser(String email) throws Exception 
+  public Response  getUser(String email) throws Exception 
   {
   	User user = pacemaker.getUser(email);
     return user == null ? new NotFound("") : new Ok(parser.renderUser(user));
   }
   
-  Response getUsers() throws Exception
+  public Response getUsers() throws Exception
   {
   	return new Ok(parser.renderUsers(pacemaker.users));
   }
 
-  Response deleteUser(Long id)
+  public Response deleteUser(Long id)
   {
    	User user = pacemaker.getUser(id);
    	pacemaker.deleteUser(user.id);
   	return null != user ? new Ok("") : new NotFound("");
   }
   
-  Response createActivity(Long id, String type, String location, double distance, String dateStr, String durationStr)
+  public Response createActivity(Long id, String type, String location, double distance, String dateStr, String durationStr)
   {
   	if (null != pacemaker.getUser(id))
   	{
@@ -59,13 +59,13 @@ class PacemakerService
   	   return new NotFound("");
   }
  
-  Response getActivities(Long id) throws Exception
+  public Response getActivities(Long id) throws Exception
   {
   	User user = pacemaker.getUser(id);
   	return user != null? new Ok(parser.renderActivities(user.activities.values())) : new NotFound("");
   }
   
-  Response addLocation (Long id, float latitude, float longitude)
+  public Response addLocation (Long id, float latitude, float longitude)
   {
   	Activity activity = pacemaker.getActivity(id);
   	if (null != activity)
