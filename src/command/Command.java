@@ -18,5 +18,11 @@ public abstract class Command
   }
 
   public abstract void doCommand(Object[] parameters)  throws Exception;
+  
+  public void undoCommand() throws Exception
+  {}
+
+  public void redoCommand() throws Exception
+  {}
 }
  

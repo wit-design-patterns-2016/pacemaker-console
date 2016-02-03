@@ -19,4 +19,14 @@ public class CreateUserCommand extends Command
     System.out.println(parser.renderUser(pacemaker.getUser(id)));
     this.user = pacemaker.getUser(id);
   }
+  
+  public void undoCommand() throws Exception
+  {
+    pacemaker.deleteUser(user.id);
+  }
+
+  public void redoCommand() throws Exception
+  {
+    pacemaker.createUser(user.firstname, user.lastname, user.email, user.password);
+  }
 }

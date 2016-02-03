@@ -17,4 +17,12 @@ public class CommandSpecifications
   @Command(description="Delete a User")
   public void deleteUser (@Param(name="id") Long id)
   {}
+  
+  @Command(description="undo last command")
+  public void undo () throws Exception
+  {}
+
+  @Command(description="redo last command")
+  public void redo () throws Exception
+  {}
 }
