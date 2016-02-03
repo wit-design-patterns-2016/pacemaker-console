@@ -12,6 +12,6 @@
 	<classpathentry kind="lib" path="lib/jackson-databind-2.2.3.jar" sourcepath="/Users/edeleastar/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.2.3/jackson-databind-2.2.3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/joda-time-2.3.jar"/>
 	<classpathentry kind="lib" path="lib/jettison-1.3.4.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Cliche"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/cliche"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
